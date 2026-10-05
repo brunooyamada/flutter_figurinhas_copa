@@ -46,7 +46,7 @@ class const TeamPicker({
             selected: selected,
             onToggled: onToggled,
             loading: loading,
-            errorMesasge: errorMessage,
+            errorMessage: errorMessage,
             onRetry: onRetry,
           ),
         ),
@@ -78,7 +78,7 @@ class const _Grid({
   required final Set<String> selected,
   required final ValueChanged<String> onToggled,
   required final bool loading,
-  required final String? errorMesasge,
+  required final String? errorMessage,
   required final VoidCallback? onRetry,
 }) extends StatelessWidget {
   @override
@@ -87,7 +87,7 @@ class const _Grid({
       return SizedBox(height: 120, child: AppLoading());
     }
 
-    if (errorMesasge case final message?) {
+    if (errorMessage case final message?) {
       return ErrorIndicator(
         title: message,
         label: 'Tentar novamente',
@@ -108,12 +108,14 @@ class const _Grid({
     }
 
     return GridView.builder(
+      padding: .zero,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         crossAxisSpacing: 4,
         mainAxisSpacing: 8,
         childAspectRatio: 68 / 52,
       ),
+      itemCount: teams.length,
       itemBuilder: (context, index) {
         final team = teams[index];
         return _TeamTile(
