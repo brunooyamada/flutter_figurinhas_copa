@@ -55,24 +55,6 @@ class const TeamPicker({
   }
 }
 
-class const _AvailableBadge({required final int count})
-    extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: .symmetric(horizontal: 10, vertical: 5),
-      decoration: ShapeDecoration(
-        color: AppColors.red.withValues(alpha: .1),
-        shape: StadiumBorder(),
-      ),
-      child: Text(
-        '$count DISPONÍVEIS',
-        style: AppTextStyles.overline.copyWith(color: AppColors.red),
-      ),
-    );
-  }
-}
-
 class const _Grid({
   required final List<Team> teams,
   required final Set<String> selected,
@@ -124,6 +106,24 @@ class const _Grid({
           onTap: () => onToggled(team.code),
         );
       },
+    );
+  }
+}
+
+class const _AvailableBadge({required final int count})
+    extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: .symmetric(horizontal: 10, vertical: 5),
+      decoration: ShapeDecoration(
+        color: AppColors.red.withValues(alpha: .1),
+        shape: StadiumBorder(),
+      ),
+      child: Text(
+        '$count DISPONÍVEIS',
+        style: AppTextStyles.overline.copyWith(color: AppColors.red),
+      ),
     );
   }
 }
