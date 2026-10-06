@@ -26,5 +26,5 @@ class const RegisterUserRequest({
   ];
 
   @override
-  bool? get stringfy => false;
+  bool? get stringify => false;
 }
