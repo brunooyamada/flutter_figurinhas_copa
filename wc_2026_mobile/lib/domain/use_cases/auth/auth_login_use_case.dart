@@ -7,7 +7,7 @@ class AuthLoginUseCase({
   required final AuthRepository _authRepository,
   required final AuthSessionRepository _authSessionRepository,
 }) {
-  Future<Result<AuthSessionUser?>> login({
+  Future<Result<AuthSessionUser>> login({
     required String email,
     required String password,
   }) async {
@@ -22,6 +22,7 @@ class AuthLoginUseCase({
           Ok<void>() => Result.ok(session.user),
           Error<void>(:final error) => Result.error(error),
         };
+
       case Error<AuthSession>(:final error):
         return Result.error(error);
     }

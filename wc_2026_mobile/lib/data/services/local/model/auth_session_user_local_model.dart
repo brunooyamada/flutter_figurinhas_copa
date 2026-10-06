@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'auth_session_user_local_model.g.dart';
 
 @JsonSerializable()
-class AuthSessionUserLocalModel({
+class const AuthSessionUserLocalModel({
   required final String name,
   required final String email,
 }) extends Equatable {

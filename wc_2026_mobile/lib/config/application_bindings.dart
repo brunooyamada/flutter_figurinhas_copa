@@ -30,7 +30,7 @@ class const ApplicationBindings({super.key, required final Widget child})
           create: (context) => AuthRepositoryRemote(authApi: context.read()),
         ),
 
-        Provider<AuthSessionRepository?>(
+        Provider<AuthSessionRepository>(
           create: (context) =>
               AuthSessionRepositoryLocal(storage: context.read()),
         ),

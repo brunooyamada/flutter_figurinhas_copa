@@ -10,11 +10,11 @@ part 'auth_api.g.dart';
 abstract class AuthApi {
   factory AuthApi(Dio dio) = _AuthApi;
 
-  @POST('/v1/auth/login')
+  @POST('v1/auth/login')
   @Extra({})
   Future<AuthSessionApiModel> login(@Body() LoginRequest request);
 
-  @POST('/v1/users')
+  @POST('v1/users')
   @Extra({})
   Future<void> register(@Body() RegisterUserRequest request);
 }

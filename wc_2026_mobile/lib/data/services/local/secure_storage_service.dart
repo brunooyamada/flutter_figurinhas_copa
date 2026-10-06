@@ -6,7 +6,7 @@ class SecureStorageService({
 }) {
   Future<String?> fetch(String key) => _guard(() => _storage.read(key: key));
 
-  Future<void> save({required key, required String value}) =>
+  Future<void> save({required String key, required String value}) =>
       _guard(() => _storage.write(key: key, value: value));
 
   Future<void> delete(String key) => _guard(() => _storage.delete(key: key));
