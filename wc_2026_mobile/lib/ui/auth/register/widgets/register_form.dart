@@ -1,16 +1,12 @@
-import 'package:flutter/widgets.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:wc_2026_mobile/ui/core/share/labeled_field.dart';
 import 'package:wc_2026_mobile/ui/core/share/required_text.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_shadows.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_text_styles.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class const RegistrerForm({
+class const RegisterForm({
   super.key,
-  required final VoidCallback? onSubmit,
+  required final VoidCallback onSubmit,
   required final Widget teamPicker,
   required final bool acceptedTerms,
   required final ValueChanged<bool> onAcceptedTermChanged,
@@ -51,7 +47,7 @@ class const RegistrerForm({
           const SizedBox(height: 20),
           LabeledField(
             label: 'Nome Completo',
-            hint: 'Bruno Oyamada',
+            hint: 'Rodrigo Rahman',
             controller: nameController,
             textCapitalization: .words,
             textInputAction: .next,
@@ -63,8 +59,8 @@ class const RegistrerForm({
             label: 'E-mail',
             hint: 'voce@exemplo.com',
             controller: emailController,
-            textInputAction: .next,
             keyboardType: .emailAddress,
+            textInputAction: .next,
             required: true,
             validator: Validatorless.multiple([
               Validatorless.required('E-mail Obrigatório'),
@@ -74,12 +70,12 @@ class const RegistrerForm({
           const SizedBox(height: 16),
           LabeledField.password(
             label: 'Senha',
-            hint: '********',
+            hint: '*******',
             controller: passwordController,
             textInputAction: .done,
             required: true,
             validator: Validatorless.multiple([
-              Validatorless.required('Senha Obrigatória'),
+              Validatorless.required('Senha Obrigatório'),
               Validatorless.min(8, 'Mínimo de 8 caracteres'),
             ]),
           ),
@@ -93,14 +89,14 @@ class const RegistrerForm({
             onChanged: onAcceptedTermChanged,
           ),
           const SizedBox(height: 12),
-          FilledButton(onPressed: onSubmit, child: Text('CONTINUAR →')),
+          FilledButton(onPressed: onSubmit, child: Text('CONTINUAR  →')),
         ],
       ),
     );
   }
 }
 
-class _TermsCheckBox({
+class const _TermsCheckBox({
   required final bool value,
   required final ValueChanged<bool> onChanged,
 }) extends StatelessWidget {

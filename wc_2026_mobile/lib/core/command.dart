@@ -6,7 +6,6 @@ typedef CommandAction1<T, A> = Future<Result<T>> Function(A);
 
 abstract class Command<T> extends ChangeNotifier {
   bool _running = false;
-
   Result<T>? _result;
 
   bool get running => _running;

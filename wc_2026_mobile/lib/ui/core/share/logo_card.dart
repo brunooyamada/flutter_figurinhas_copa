@@ -1,15 +1,16 @@
+import 'package:flutter/widget_previews.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_assets.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_shadows.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class LogoCard({super.key}) extends StatelessWidget {
+@Preview(size: Size(390, 280))
+Widget logoCardPreview() => MaterialApp(home: Scaffold(body: LogoCard()));
+
+class const LogoCard({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: .all(15),
+      padding: const .all(15.0),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: AppDimens.borderRadiusLg,
@@ -19,20 +20,20 @@ class LogoCard({super.key}) extends StatelessWidget {
         fit: .expand,
         children: [
           Align(
-            alignment: Alignment.topLeft,
+            alignment: .topLeft,
             child: SizedBox(width: 10, height: 10, child: _CornerMark(0)),
           ),
           Align(
-            alignment: Alignment.topRight,
+            alignment: .topRight,
             child: SizedBox(width: 10, height: 10, child: _CornerMark(1)),
           ),
           Align(
-            alignment: Alignment.bottomLeft,
-            child: SizedBox(width: 10, height: 10, child: _CornerMark(1)),
+            alignment: .bottomLeft,
+            child: SizedBox(width: 10, height: 10, child: _CornerMark(3)),
           ),
           Align(
-            alignment: Alignment.bottomRight,
-            child: SizedBox(width: 10, height: 10, child: _CornerMark(1)),
+            alignment: .bottomRight,
+            child: SizedBox(width: 10, height: 10, child: _CornerMark(2)),
           ),
 
           Column(
@@ -48,25 +49,18 @@ class LogoCard({super.key}) extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               SizedBox(
-                height: 140,
-                child: Image.asset(
-                  AppAssets.images.logoFifaWc2026,
-                  fit: .cover,
-                ),
+                width: 140,
+
+                child: Image.asset(AppAssets.images.logoFifaWc26, fit: .cover),
               ),
-              const SizedBox(
-                 height: 20,
-              ),
-              Text(
-                'USA · CANADÁ · MÉXICO',
-                style: AppTextStyles.overline,
-              ),
-              const SizedBox(
-                 height: 10,
-              ),
+              const SizedBox(height: 20),
+              Text('USA  ·  CANADÁ  ·  MÉXICO', style: AppTextStyles.overline),
+              const SizedBox(height: 10),
               Text(
                 '11 JUN — 19 JUL 2026',
-                style: AppTextStyles.overline.copyWith(color: AppColors.grayText),
+                style: AppTextStyles.overline.copyWith(
+                  color: AppColors.grayText,
+                ),
               ),
             ],
           ),
@@ -76,7 +70,7 @@ class LogoCard({super.key}) extends StatelessWidget {
   }
 }
 
-class _CornerMark(final int quarterTurns) extends StatelessWidget {
+class const _CornerMark(final int quarterTurns) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RotatedBox(

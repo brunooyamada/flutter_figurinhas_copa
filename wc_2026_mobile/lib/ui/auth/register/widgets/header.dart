@@ -2,7 +2,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_assets.dart';
 import 'package:wc_2026_mobile/ui/core/share/glass_bar.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
 class const Header({super.key}) extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/core/command.dart';
+import 'package:wc_2026_mobile/core/logging/app_logger.dart';
 import 'package:wc_2026_mobile/core/result.dart';
-import 'package:wc_2026_mobile/core/view_model_inializable.dart';
+import 'package:wc_2026_mobile/core/view_model_initializable.dart';
 import 'package:wc_2026_mobile/data/repositories/auth/auth_repository.dart';
 import 'package:wc_2026_mobile/data/repositories/team/team_repository.dart';
 import 'package:wc_2026_mobile/domain/models/team/team.dart';
-import 'package:wc_2026_mobile/ui/core/logging/app_logger.dart';
 
 class RegisterViewModel({
   required final AuthRepository _authRepository,
@@ -42,7 +42,7 @@ class RegisterViewModel({
     switch (teams) {
       case Ok<List<Team>>(:final value):
         _teams = value;
-        _log.debug('${value.length} seleções no catálogo');
+        _log.debug('${value.length} seleções no catalogo');
         return Result.done;
       case Error<List<Team>>(:final error):
         _log.error(

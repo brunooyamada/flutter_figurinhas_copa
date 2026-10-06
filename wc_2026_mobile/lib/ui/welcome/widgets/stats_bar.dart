@@ -1,7 +1,9 @@
-import 'package:material_ui/material_ui.dart';
-import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_text_styles.dart';
 
-class StatsBar({super.key}) extends StatelessWidget {
+class const StatsBar({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -22,7 +24,8 @@ class StatsBar({super.key}) extends StatelessWidget {
   }
 }
 
-class _Stat(final String value, final String label) extends StatelessWidget {
+class const _Stat(final String value, final String label)
+    extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,8 +46,7 @@ class _Stat(final String value, final String label) extends StatelessWidget {
   }
 }
 
-class _StatDivider() extends StatelessWidget {
-  
+class const _StatDivider() extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VerticalDivider(

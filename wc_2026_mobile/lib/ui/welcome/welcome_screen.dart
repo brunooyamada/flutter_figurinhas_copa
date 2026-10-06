@@ -9,7 +9,9 @@ import 'package:wc_2026_mobile/ui/welcome/widgets/stats_bar.dart';
 
 import '../core/theme/theme.dart';
 
-class const WelcomeScreen({super.key}) extends StatelessWidget {
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

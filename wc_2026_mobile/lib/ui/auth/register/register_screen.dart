@@ -1,13 +1,11 @@
-import 'package:material_ui/material_ui.dart' hide Error;
-import 'package:wc_2026_mobile/core/command.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/core/result.dart';
-import 'package:wc_2026_mobile/domain/models/team/team.dart';
 import 'package:wc_2026_mobile/ui/auth/register/register_viewmodel.dart';
 import 'package:wc_2026_mobile/ui/auth/register/widgets/header.dart';
-import 'package:wc_2026_mobile/ui/auth/register/widgets/registrer_form.dart';
+import 'package:wc_2026_mobile/ui/auth/register/widgets/register_form.dart';
 import 'package:wc_2026_mobile/ui/auth/register/widgets/team_picker.dart';
 import 'package:wc_2026_mobile/ui/core/share/error_messages.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
 class const RegisterScreen({
   super.key,
@@ -50,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               child: Form(
                 key: _formKey,
-                child: RegistrerForm(
+                child: RegisterForm(
                   onSubmit: () {},
                   nameController: _name,
                   emailController: _email,
@@ -63,7 +61,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     builder: (context, _) {
                       final teams = widget.viewModel.teams;
                       final loadTeams = widget.viewModel.loadTeams;
-
                       return TeamPicker(
                         teams: widget.viewModel.teamMatching(_search.text),
                         available: teams.length,
@@ -82,8 +79,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             }
                           });
                         },
-                        // loading: false,
                         // errorMessage: 'Erro ao buscar times',
+                        // loading: true,
                       );
                     },
                   ),

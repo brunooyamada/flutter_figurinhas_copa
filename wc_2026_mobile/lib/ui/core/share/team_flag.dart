@@ -30,7 +30,7 @@ class const TeamFlag({
       height: size,
       child: circle
           ? ClipOval(child: image)
-          : ClipRRect(borderRadius: BorderRadius.circular(2), child: image),
+          : ClipRRect(borderRadius: .circular(2), child: image),
     );
   }
 }

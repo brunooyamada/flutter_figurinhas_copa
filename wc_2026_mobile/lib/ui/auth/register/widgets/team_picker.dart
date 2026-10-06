@@ -1,9 +1,7 @@
-import 'package:flutter/widgets.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/domain/models/team/team.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_loading.dart';
 import 'package:wc_2026_mobile/ui/core/share/error_indicator.dart';
-import 'package:wc_2026_mobile/ui/core/share/error_messages.dart';
 import 'package:wc_2026_mobile/ui/core/share/required_text.dart';
 import 'package:wc_2026_mobile/ui/core/share/team_flag.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
@@ -72,7 +70,7 @@ class const _Grid({
     if (errorMessage case final message?) {
       return ErrorIndicator(
         title: message,
-        label: 'Tentar novamente',
+        label: 'Tentar Novamente',
         onPressed: onRetry ?? () {},
       );
     }
@@ -151,7 +149,7 @@ class const _TeamTile({
             mainAxisSize: .min,
             spacing: 8,
             children: [
-              TeamFlag.url(team.flagUrl!, size: 18, circle: false),
+              TeamFlag.url(team.flagUrl, size: 18, circle: false),
               Text(
                 team.code,
                 style: AppTextStyles.caption.copyWith(color: foreground),

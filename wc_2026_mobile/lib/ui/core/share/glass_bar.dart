@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 
 class const GlassBar({
   super.key,

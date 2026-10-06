@@ -1,6 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:material_ui/material_ui.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
 class const ErrorIndicator({
   super.key,
@@ -15,7 +14,7 @@ class const ErrorIndicator({
         padding: AppDimens.edgeInsetsScreen,
         child: Column(
           mainAxisSize: .min,
-          spacing: AppDimens.paddingVertical,
+          spacing: AppDimens.paddingHorizontal,
           children: [
             Text(title, textAlign: .center),
             FilledButton(onPressed: onPressed, child: Text(label)),

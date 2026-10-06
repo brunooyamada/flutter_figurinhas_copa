@@ -1,8 +1,10 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_assets.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class Emblem({super.key}) extends StatelessWidget {
+class Emblem extends StatelessWidget {
+  const new({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +19,7 @@ class Emblem({super.key}) extends StatelessWidget {
       child: SizedBox(
         width: 54,
         height: 68,
-        child: Image.asset(AppAssets.images.logoFifaWc2026, fit: .cover),
+        child: Image.asset(AppAssets.images.logoFifaWc26, fit: .contain),
       ),
     );
   }

@@ -10,29 +10,17 @@ import 'package:wc_2026_mobile/ui/splash/splash_screen.dart';
 import 'package:wc_2026_mobile/ui/welcome/welcome_screen.dart';
 
 GoRouter router() => GoRouter(
-  initialLocation: Routes.login,
+  initialLocation: Routes.splash,
   routes: [
-    GoRoute(
-      path: Routes.splash,
-      builder: (_, _) {
-        return SplashScreen();
-      },
-    ),
-    GoRoute(
-      path: Routes.welcome,
-      builder: (_, _) {
-        return WelcomeScreen();
-      },
-    ),
+    GoRoute(path: Routes.splash, builder: (_, _) => SplashScreen()),
+    GoRoute(path: Routes.welcome, builder: (_, _) => WelcomeScreen()),
     GoRoute(
       path: Routes.login,
-      builder: (_, _) {
-        return LoginBindings(
-          screenBuilder: (context) {
-            return LoginScreen(viewModel: context.read());
-          },
-        );
-      },
+      builder: (_, _) => LoginBindings(
+        screenBuilder: (context) {
+          return LoginScreen(viewModel: context.read());
+        },
+      ),
     ),
     GoRoute(
       path: Routes.authRegister,

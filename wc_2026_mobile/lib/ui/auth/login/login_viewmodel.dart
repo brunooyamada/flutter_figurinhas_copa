@@ -1,9 +1,9 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wc_2026_mobile/core/command.dart';
+import 'package:wc_2026_mobile/core/logging/app_logger.dart';
 import 'package:wc_2026_mobile/core/result.dart';
 import 'package:wc_2026_mobile/data/repositories/auth/auth_repository.dart';
 import 'package:wc_2026_mobile/domain/models/auth_session.dart';
-import 'package:wc_2026_mobile/ui/core/logging/app_logger.dart';
 
 class LoginViewModel({required final AuthRepository _authRepository})
     extends ChangeNotifier {
@@ -13,9 +13,6 @@ class LoginViewModel({required final AuthRepository _authRepository})
 
   Future<Result<void>> _login((String, String) credentials) async {
     final (email, password) = credentials;
-
-    debugPrint(credentials.toString());
-    await Future.delayed(Duration(seconds: 2));
 
     final result = await _authRepository.login(
       email: email,

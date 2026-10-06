@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:wc_2026_mobile/config/environment.dart';
 import 'package:wc_2026_mobile/data/repositories/auth/auth_repository.dart';
 import 'package:wc_2026_mobile/data/repositories/auth/auth_repository_remote.dart';
 import 'package:wc_2026_mobile/data/repositories/team/team_repository.dart';
-import 'package:wc_2026_mobile/data/repositories/team/team_repository_remove.dart';
+import 'package:wc_2026_mobile/data/repositories/team/team_repository_remote.dart';
 import 'package:wc_2026_mobile/data/services/api/auth_api.dart';
 import 'package:wc_2026_mobile/data/services/api/team_api.dart';
 import 'package:wc_2026_mobile/routing/router.dart';
 
-class ApplicationBindings({super.key, required final Widget child})
+class const ApplicationBindings({super.key, required final Widget child})
     extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,10 @@ class ApplicationBindings({super.key, required final Widget child})
         Provider<AuthRepository>(
           create: (context) => AuthRepositoryRemote(authApi: context.read()),
         ),
+
         Provider(create: (context) => TeamApi(context.read())),
         Provider<TeamRepository>(
-          create: (context) => TeamRepositoryRemove(teamApi: context.read()),
+          create: (context) => TeamRepositoryRemote(teamApi: context.read()),
         ),
       ],
       child: child,

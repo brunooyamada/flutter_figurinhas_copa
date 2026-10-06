@@ -1,7 +1,7 @@
-import 'package:material_ui/material_ui.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
+import 'package:flutter/widgets.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class RequiredText({
+class const RequiredText({
   super.key,
   required final String text,
   final TextStyle? style,
@@ -16,11 +16,11 @@ class RequiredText({
         text: text,
         children: const [
           TextSpan(
-            text: ' *',
+            text: " *",
             style: TextStyle(color: AppColors.red),
           ),
         ],
-        style: style
+        style: style,
       ),
     );
   }

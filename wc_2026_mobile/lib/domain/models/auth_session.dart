@@ -17,4 +17,7 @@ class const AuthSessionUser({
 }) extends Equatable {
   @override
   List<Object?> get props => [name, email];
+
+  @override
+  bool? get stringify => false;
 }

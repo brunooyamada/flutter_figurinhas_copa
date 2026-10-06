@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'team_api_model.g.dart';
 
 @JsonSerializable()
-class TeamApiModel({
+class const TeamApiModel({
   required final String code,
   required final String name,
   required final String flagUrl,
@@ -14,6 +14,7 @@ class TeamApiModel({
       _$TeamApiModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TeamApiModelToJson(this);
+
   @override
   List<Object?> get props => [code, name, flagUrl, primaryColor];
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:wc_2026_mobile/core/view_model_inializable.dart';
-import 'package:wc_2026_mobile/ui/auth/register/register_screen.dart';
+import 'package:wc_2026_mobile/core/view_model_initializable.dart';
 import 'package:wc_2026_mobile/ui/auth/register/register_viewmodel.dart';
 
 class const RegisterBindings({

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'login_request.g.dart';
 
 @JsonSerializable()
-class LoginRequest({
+class const LoginRequest({
   required final String email,
   required final String password,
 }) extends Equatable {

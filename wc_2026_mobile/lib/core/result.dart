@@ -7,8 +7,6 @@ sealed class const Result<T>() {
   static const Result<void> done = Ok<void>._(null);
 }
 
-// OK
-final class const Ok<T>._(final T value) extends Result<T> {}
+final class const Ok<T>._(final T value) extends Result<T>;
 
-// error
-final class const Error<T>._(final AppException error) extends Result<T> {}
+final class const Error<T>._(final AppException error) extends Result<T>;

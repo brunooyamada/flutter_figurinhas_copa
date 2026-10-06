@@ -1,4 +1,4 @@
-import 'package:wc_2026_mobile/data/services/api/model/auth/auth_session_api.dart';
+import 'package:wc_2026_mobile/data/services/api/model/auth/auth_session_api_model.dart';
 import 'package:wc_2026_mobile/domain/models/auth_session.dart';
 
 extension AuthSessionApiModelMapper on AuthSessionApiModel {

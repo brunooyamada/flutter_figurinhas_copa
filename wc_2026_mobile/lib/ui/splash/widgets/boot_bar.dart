@@ -1,9 +1,7 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_text_styles.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class BootBar({super.key, required final double progress})
+class const BootBar({super.key, required final double progress})
     extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class BootBar({super.key, required final double progress})
         spacing: 15,
         children: [
           Padding(
-            padding: const .symmetric(horizontal: 45),
+            padding: .symmetric(horizontal: 45),
             child: LinearProgressIndicator(
               value: progress,
               minHeight: 6,
@@ -26,7 +24,10 @@ class BootBar({super.key, required final double progress})
               color: AppColors.yellow,
             ),
           ),
-          Text('PREPARANDO SEU ÁLBUM ...', style: AppTextStyles.overline.copyWith(color: AppColors.cream),),
+          Text(
+            'PREPARANDO SEU ÁLBUM…',
+            style: AppTextStyles.overline.copyWith(color: AppColors.cream),
+          ),
         ],
       ),
     );

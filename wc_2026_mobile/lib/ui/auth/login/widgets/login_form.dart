@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:wc_2026_mobile/ui/core/share/labeled_field.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
 class const LoginForm({
@@ -55,29 +54,30 @@ class const LoginForm({
             required: true,
             validator: Validatorless.required('E-mail obrigatório'),
           ),
+          const SizedBox(height: 17),
           LabeledField.password(
             controller: passwordController,
             label: 'SENHA',
-            hint: '********',
+            hint: '*********',
             textInputAction: .done,
             required: true,
             validator: Validatorless.required('Senha obrigatória'),
           ),
           TextButton(
             onPressed: () {},
-            child: Text('Esqueci minha senha →'),
             style: TextButton.styleFrom(
               padding: .zero,
               textStyle: AppTextStyles.caption,
             ),
+            child: Text('Esqueci minha senha →'),
           ),
           const SizedBox(height: 23),
           SizedBox(
             width: double.infinity,
             child: FilledButton(
               onPressed: onSubmit,
-              child: Text('ENTRAR NO ÁLBUM →'),
               style: AppTheme.darkButton,
+              child: Text('ENTRAR NO ÁLBUM  →'),
             ),
           ),
         ],
