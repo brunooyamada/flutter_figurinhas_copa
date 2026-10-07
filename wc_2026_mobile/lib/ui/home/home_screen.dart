@@ -3,9 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:wc_2026_mobile/core/auth/auth_session_notifier.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
+import 'package:wc_2026_mobile/ui/home/home_viewmodel.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/action_card.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/album_hero.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/header.dart';
+import 'package:wc_2026_mobile/ui/home/widgets/recent_stickers.dart';
 
 class const HomeScreen({super.key, required final String name})
     extends StatelessWidget {
@@ -21,6 +24,7 @@ class const HomeScreen({super.key, required final String name})
           Padding(
             padding: .symmetric(horizontal: AppDimens.gridMargin),
             child: Column(
+              crossAxisAlignment: .start,
               children: [
                 _Progress(),
                 const SizedBox(height: 24),
@@ -49,11 +53,37 @@ class const HomeScreen({super.key, required final String name})
                     ),
                   ],
                 ),
+                const SizedBox(height: 36),
+                Text('COLADAS RECENTEMENTE', style: AppTextStyles.overline),
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          _Recent(onStickerTap: (value) {}),
         ],
       ),
+    );
+  }
+}
+
+class const _Recent({
+  required final ValueChanged<RecentStickerView> onStickerTap,
+}) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RecentStickers(
+      stickers: [
+        (
+          code: 'BRA',
+          number: 1,
+          flagCode: 'bra',
+          label: 'BRA',
+          teamColor: Color(0xffFFDF00),
+          teamName: 'Brazil',
+          count: 1,
+        ),
+      ],
+      onStickerTap: onStickerTap,
     );
   }
 }
