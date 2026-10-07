@@ -67,61 +67,63 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Header(),
           SafeArea(
-            child: Column(
-              mainAxisAlignment: .spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: .stretch,
-                  children: [
-                    const SizedBox(height: 20),
-                    Emblem(),
-                    const SizedBox(height: 26),
-                    Text(
-                      'FIFA WORLD CUP 26™',
-                      style: AppTextStyles.overline,
-                      textAlign: .center,
-                    ),
-                    const SizedBox(height: 36),
-                    Padding(
-                      padding: .symmetric(
-                        horizontal: AppDimens.paddingHorizontal,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: .stretch,
+                    children: [
+                      const SizedBox(height: 20),
+                      Emblem(),
+                      const SizedBox(height: 26),
+                      Text(
+                        'FIFA WORLD CUP 26™',
+                        style: AppTextStyles.overline,
+                        textAlign: .center,
                       ),
-                      child: ListenableBuilder(
-                        listenable: Listenable.merge([_email, _password]),
-                        builder: (context, _) {
-                          final preenchido =
-                              _email.text.trim().isNotEmpty &&
-                              _password.text.trim().isNotEmpty;
+                      const SizedBox(height: 36),
+                      Padding(
+                        padding: .symmetric(
+                          horizontal: AppDimens.paddingHorizontal,
+                        ),
+                        child: ListenableBuilder(
+                          listenable: Listenable.merge([_email, _password]),
+                          builder: (context, _) {
+                            final preenchido =
+                                _email.text.trim().isNotEmpty &&
+                                _password.text.trim().isNotEmpty;
 
-                          return LoginForm(
-                            emailController: _email,
-                            passwordController: _password,
-                            onSubmit: preenchido
-                                ? () {
-                                    final arguments = (
-                                      _email.text.trim(),
-                                      _password.text.trim(),
-                                    );
-                                    widget.viewModel.login.execute(arguments);
-                                  }
-                                : null,
-                          );
-                        },
+                            return LoginForm(
+                              emailController: _email,
+                              passwordController: _password,
+                              onSubmit: preenchido
+                                  ? () {
+                                      final arguments = (
+                                        _email.text.trim(),
+                                        _password.text.trim(),
+                                      );
+                                      widget.viewModel.login.execute(arguments);
+                                    }
+                                  : null,
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: AppColors.ink,
-                    textStyle: AppTextStyles.bodyBold,
+                    ],
                   ),
-                  onPressed: () {
-                    context.push(Routes.authRegister);
-                  },
-                  child: Text('Não tem conta?  Criar conta →'),
-                ),
-              ],
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: AppColors.ink,
+                      textStyle: AppTextStyles.bodyBold,
+                    ),
+                    onPressed: () {
+                      context.push(Routes.authRegister);
+                    },
+                    child: Text('Não tem conta?  Criar conta →'),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

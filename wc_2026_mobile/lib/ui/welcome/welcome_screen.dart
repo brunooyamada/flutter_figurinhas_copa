@@ -25,38 +25,45 @@ class WelcomeScreen extends StatelessWidget {
               padding: const .symmetric(
                 horizontal: AppDimens.paddingHorizontal,
               ),
-              child: Column(
-                mainAxisAlignment: .center,
-                children: [
-                  const LicensedBadge(),
-                  const SizedBox(height: 40),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 290, maxHeight: 380),
-                    child: LogoCard(),
-                  ),
-                  const SizedBox(height: 36),
-                  Text('SEU ÁLBUM', style: AppTextStyles.display),
-                  Text(
-                    'OFICIAL',
-                    style: AppTextStyles.display.copyWith(color: AppColors.red),
-                  ),
-                  const SizedBox(height: 20),
-                  SizedBox(height: 72, child: StatsBar()),
-                  const SizedBox(height: 20),
-                  FilledButton(
-                    onPressed: () => context.go(Routes.login),
-                    child: Text('COMEÇAR A COLECIONAR  →'),
-                  ),
-                  const SizedBox(height: 8),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.ink,
-                      textStyle: AppTextStyles.body,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: .center,
+                  children: [
+                    const LicensedBadge(),
+                    const SizedBox(height: 40),
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: 290,
+                        maxHeight: 380,
+                      ),
+                      child: LogoCard(),
                     ),
-                    onPressed: () {},
-                    child: Text('Já tenho conta · Entrar'),
-                  ),
-                ],
+                    const SizedBox(height: 36),
+                    Text('SEU ÁLBUM', style: AppTextStyles.display),
+                    Text(
+                      'OFICIAL',
+                      style: AppTextStyles.display.copyWith(
+                        color: AppColors.red,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(height: 72, child: StatsBar()),
+                    const SizedBox(height: 20),
+                    FilledButton(
+                      onPressed: () => context.go(Routes.login),
+                      child: Text('COMEÇAR A COLECIONAR  →'),
+                    ),
+                    const SizedBox(height: 8),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: AppColors.ink,
+                        textStyle: AppTextStyles.body,
+                      ),
+                      onPressed: () {},
+                      child: Text('Já tenho conta · Entrar'),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

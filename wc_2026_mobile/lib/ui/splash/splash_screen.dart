@@ -58,49 +58,57 @@ class _SplashScreenState extends State<SplashScreen>
         children: [
           SvgPicture.asset(AppAssets.patterns.paniniArcSplashSvg, fit: .cover),
           ColoredBox(color: AppColors.cream.withValues(alpha: .35)),
-          Column(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: .center,
-                  children: [
-                    const LicensedBadge(),
-                    const SizedBox(height: 40),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxWidth: 290,
-                        maxHeight: 380,
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Column(
+                    mainAxisAlignment: .center,
+                    children: [
+                      const LicensedBadge(),
+                      const SizedBox(height: 40),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 290,
+                          maxHeight: 380,
+                        ),
+                        child: LogoCard(),
                       ),
-                      child: LogoCard(),
-                    ),
-                    const SizedBox(height: 36),
-                    Text('SEU ÁLBUM', style: AppTextStyles.display),
-                    Text(
-                      'OFICIAL',
-                      style: AppTextStyles.display.copyWith(
-                        color: AppColors.red,
-                      ),
-                    ),
-                    const SizedBox(height: 40),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 290),
-                      child: SizedBox(
-                        height: 72,
-                        child: AnimatedBuilder(
-                          animation: _boot,
-                          builder: (_, _) {
-                            return BootBar(progress: _boot.value);
-                          },
+                      const SizedBox(height: 36),
+                      Text('SEU ÁLBUM', style: AppTextStyles.display),
+                      Text(
+                        'OFICIAL',
+                        style: AppTextStyles.display.copyWith(
+                          color: AppColors.red,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                      const SizedBox(height: 40),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 290,
+                          maxHeight: 380,
+                        ),
+                        child: SizedBox(
+                          height: 72,
+                          child: AnimatedBuilder(
+                            animation: _boot,
+                            builder: (_, _) {
+                              return BootBar(progress: _boot.value);
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
 
-              Text('V1.0.0 - Fifa World Cup 26', style: AppTextStyles.overline),
-              const SizedBox(height: 20),
-            ],
+                  Text(
+                    'V1.0.0 - Fifa World Cup 26',
+                    style: AppTextStyles.overline,
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
+            ),
           ),
         ],
       ),
