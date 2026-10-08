@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:wc_2026_mobile/config/environment.dart';
 import 'package:wc_2026_mobile/core/auth/auth_session_notifier.dart';
+import 'package:wc_2026_mobile/data/repositories/album/album_repository.dart';
 import 'package:wc_2026_mobile/data/repositories/album/album_repository_remote.dart';
 import 'package:wc_2026_mobile/data/repositories/auth/auth_repository.dart';
 import 'package:wc_2026_mobile/data/repositories/auth/auth_repository_remote.dart';
@@ -55,7 +56,7 @@ class const ApplicationBindings({super.key, required final Widget child})
         ),
 
         Provider(create: (context) => AlbumApi(context.read())),
-        Provider(
+        Provider<AlbumRepository>(
           create: (context) => AlbumRepositoryRemote(albumApi: context.read()),
         ),
 
@@ -74,6 +75,7 @@ class const ApplicationBindings({super.key, required final Widget child})
           create: (context) => AuthSessionNotifier(
             authLogoutUseCase: context.read(),
             authRestoreSessionUseCase: context.read(),
+            sessionEnded: context.read<AuthInterceptor>().onUnauthorized,
           ),
         ),
         Provider<GoRouter>(create: (context) => router(context.read())),

@@ -11,7 +11,7 @@ class const HomeBindings({
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider(
+        Provider<HomeViewmodel>(
           create: (context) =>
               HomeViewmodel(albumRepository: context.read()).initialized(),
         ),
