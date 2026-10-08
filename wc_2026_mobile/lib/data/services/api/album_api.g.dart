@@ -30,7 +30,7 @@ class _AlbumApi implements AlbumApi {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/album/sumary',
+            '/v1/album/sumary',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -57,7 +57,7 @@ class _AlbumApi implements AlbumApi {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/album/recent',
+            '/v1/album/recent',
             queryParameters: queryParameters,
             data: _data,
           )

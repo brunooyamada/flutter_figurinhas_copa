@@ -9,9 +9,9 @@ part 'album_api.g.dart';
 abstract class AlbumApi {
   factory AlbumApi(Dio dio) = _AlbumApi;
 
-  @GET('v1/album/sumary')
+  @GET('/v1/album/sumary')
   Future<AlbumSummaryApiModel> getSummary();
 
-  @GET('v1/album/recent')
+  @GET('/v1/album/recent')
   Future<RecentStickersApiModel> getRecent();
 }

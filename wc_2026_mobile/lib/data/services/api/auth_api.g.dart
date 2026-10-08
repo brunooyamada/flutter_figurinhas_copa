@@ -22,7 +22,7 @@ class _AuthApi implements AuthApi {
 
   @override
   Future<AuthSessionApiModel> login(LoginRequest request) async {
-    final _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{'publicRoute': true};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -31,7 +31,7 @@ class _AuthApi implements AuthApi {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/login',
+            '/v1/auth/login',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -50,7 +50,7 @@ class _AuthApi implements AuthApi {
 
   @override
   Future<void> register(RegisterUserRequest request) async {
-    final _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{'publicRoute': true};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -59,7 +59,7 @@ class _AuthApi implements AuthApi {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/users',
+            '/v1/users',
             queryParameters: queryParameters,
             data: _data,
           )
