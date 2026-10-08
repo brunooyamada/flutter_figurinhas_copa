@@ -11,8 +11,11 @@ import 'package:wc_2026_mobile/ui/home/widgets/header.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/recent_stickers.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/repeated_strip.dart';
 
-class const HomeScreen({super.key, required final String name})
-    extends StatelessWidget {
+class const HomeScreen({
+  super.key,
+  required final HomeViewmodel _viewModel,
+  required final AuthSessionNotifier _session,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final session = context.read<AuthSessionNotifier>();
