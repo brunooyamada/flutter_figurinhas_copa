@@ -4,9 +4,11 @@ import 'package:wc_2026_mobile/ui/core/share/initials_avatar.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class Header extends StatelessWidget implements PreferredSizeWidget {
-  const new({super.key});
-
+class const Header({
+  super.key,
+  required final String initials,
+  required final String name,
+}) extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -17,7 +19,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           InitialsAvatar(
-            initials: 'RR',
+            initials: initials,
             size: 44,
             style: AppTextStyles.button,
             ringColor: AppColors.ink,
@@ -36,7 +38,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
                 Text(
-                  'Rodrigo Rahman',
+                  name,
                   maxLines: 1,
                   overflow: .ellipsis,
                   style: AppTextStyles.title,
