@@ -3,9 +3,15 @@ import 'package:flutter/widgets.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_assets.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class const AlbumHero({super.key}) extends StatelessWidget {
+class const AlbumHero({
+  super.key,
+  required final int _collected,
+  required final int _total,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final progress = _total == 0 ? 0.0 : _collected / _total;
+
     return SizedBox(
       height: 220,
       child: ClipRRect(
@@ -88,7 +94,7 @@ class const AlbumHero({super.key}) extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '68%',
+                      '${(progress * 100).round()}%',
                       style: AppTextStyles.stat.copyWith(
                         color: AppColors.yellow,
                       ),
@@ -102,13 +108,13 @@ class const AlbumHero({super.key}) extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      '666 / 980 FIGURINHAS',
+                      '$_collected / $_total FIGURINHAS',
                       style: AppTextStyles.overline.copyWith(
                         color: AppColors.white,
                       ),
                     ),
                     LinearProgressIndicator(
-                      value: 0.5,
+                      value: progress,
                       minHeight: 6,
                       borderRadius: .circular(3),
                       backgroundColor: AppColors.white.withValues(alpha: .2),

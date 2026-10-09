@@ -11,9 +11,9 @@ class const HomeBindings({
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<HomeViewmodel>(
+        ChangeNotifierProvider<HomeViewModel>(
           create: (context) =>
-              HomeViewmodel(albumRepository: context.read()).initialized(),
+              HomeViewModel(albumRepository: context.read()).initialized(),
         ),
       ],
       builder: (context, child) => screenBuilder(context),

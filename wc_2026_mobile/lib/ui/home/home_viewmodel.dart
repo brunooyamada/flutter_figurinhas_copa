@@ -20,7 +20,7 @@ typedef RecentStickerView = ({
   int count,
 });
 
-class HomeViewmodel({required final AlbumRepository _albumRepository})
+class HomeViewModel({required final AlbumRepository _albumRepository})
     extends ChangeNotifier
     implements ViewModelInitializable {
   final _log = AppLogger('HomeViewModel');

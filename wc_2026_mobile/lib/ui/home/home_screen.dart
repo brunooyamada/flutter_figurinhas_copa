@@ -1,8 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:wc_2026_mobile/core/auth/auth_session_notifier.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
-import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
+import 'package:wc_2026_mobile/core/view_model_inializable.dart';
+import 'package:wc_2026_mobile/domain/models/album/recent_sticker.dart';
+import 'package:wc_2026_mobile/ui/core/share/command_builder.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 import 'package:wc_2026_mobile/ui/home/home_viewmodel.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/action_card.dart';
@@ -10,10 +11,11 @@ import 'package:wc_2026_mobile/ui/home/widgets/album_hero.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/header.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/recent_stickers.dart';
 import 'package:wc_2026_mobile/ui/home/widgets/repeated_strip.dart';
+import 'package:wc_2026_mobile/core/result.dart';
 
 class const HomeScreen({
   super.key,
-  required final HomeViewmodel _viewModel,
+  required final HomeViewModel _viewModel,
   required final AuthSessionNotifier _session,
 }) extends StatelessWidget {
   @override
@@ -32,7 +34,7 @@ class const HomeScreen({
               child: Column(
                 crossAxisAlignment: .start,
                 children: [
-                  _Progress(),
+                  _Progress(viewModel: _viewModel),
                   const SizedBox(height: 24),
                   Row(
                     spacing: 16,
@@ -65,11 +67,11 @@ class const HomeScreen({
               ),
             ),
             const SizedBox(height: 16),
-            _Recent(onStickerTap: (value) {}),
+            _Recent(viewModel: _viewModel, onStickerTap: (value) {}),
             const SizedBox(height: 22),
             Padding(
               padding: const .symmetric(horizontal: AppDimens.gridMargin),
-              child: _Repeated(onTap: () {}),
+              child: _Repeated(viewModel: _viewModel, onTap: () {}),
             ),
           ],
         ),
@@ -79,38 +81,52 @@ class const HomeScreen({
 }
 
 class const _Recent({
+  required final HomeViewModel viewModel,
   required final ValueChanged<RecentStickerView> onStickerTap,
 }) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RecentStickers(
-      stickers: [
-        (
-          code: 'BRA',
-          number: 1,
-          flagCode: 'bra',
-          label: 'BRA',
-          teamColor: Color(0xffFFDF00),
-          teamName: 'Brazil',
-          count: 1,
-        ),
-      ],
-      onStickerTap: onStickerTap,
+    return CommandBuilder<List<RecentStickerView>>(
+      asyncCommand: viewModel.loadRecent,
+      data: () => viewModel.recentStickers,
+      loading: (context, loaderWidget) =>
+          SizedBox(height: 138, child: loaderWidget),
+      retry: () => viewModel.loadRecent.execute(),
+      builder: (data) {
+        return RecentStickers(stickers: data, onStickerTap: onStickerTap);
+      },
     );
   }
 }
 
-class const _Progress() extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return AlbumHero();
-  }
-}
-
-class const _Repeated({required final VoidCallback onTap})
+class const _Progress({required final HomeViewModel viewModel})
     extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RepeatedStrip(count: 10, onTap: () {});
+    return CommandBuilder(
+      asyncCommand: viewModel.loadSummary,
+      data: () => viewModel.progress,
+      retry: () => viewModel.loadSummary.execute(),
+      builder: (result) =>
+          AlbumHero(collected: result.collected, total: result.total),
+    );
+  }
+}
+
+class const _Repeated({
+  required final HomeViewModel _viewModel,
+  required final VoidCallback onTap,
+}) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListenableBuilder(
+      listenable: _viewModel.loadSummary,
+      builder: (context, _) {
+        if (_viewModel.progress case final progress?) {
+          return RepeatedStrip(count: progress.repeated, onTap: onTap);
+        }
+        return SizedBox.shrink();
+      },
+    );
   }
 }
