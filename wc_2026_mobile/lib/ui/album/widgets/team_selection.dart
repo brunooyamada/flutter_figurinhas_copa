@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:material_ui/material_ui.dart';
-import 'package:wc_2026_mobile/ui/album/widgets/album__view_model.dart';
+import 'package:wc_2026_mobile/ui/album/album__view_model.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/sticker_tile.dart';
 import 'package:wc_2026_mobile/ui/core/share/team_flag.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
