@@ -16,7 +16,7 @@ abstract class AlbumApi {
     @Query('team') String? team,
   });
 
-  @GET('/v1/album/sumary')
+  @GET('/v1/album/summary')
   Future<AlbumSummaryApiModel> getSummary();
 
   @GET('/v1/album/recent')

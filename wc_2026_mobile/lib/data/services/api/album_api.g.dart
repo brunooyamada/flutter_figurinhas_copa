@@ -58,7 +58,7 @@ class _AlbumApi implements AlbumApi {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/v1/album/sumary',
+            '/v1/album/summary',
             queryParameters: queryParameters,
             data: _data,
           )

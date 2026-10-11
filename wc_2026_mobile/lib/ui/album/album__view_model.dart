@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/core/command.dart';
 import 'package:wc_2026_mobile/core/result.dart';
@@ -48,6 +49,29 @@ class AlbumViewModel({
     loadTeams.execute();
     loadSummary.execute();
   }
+
+  void toggleTeam(String code) {
+    if (_teamCode == code) return;
+    _teamCode = code;
+    _reload();
+  }
+
+  void selectedStatus(StickerStatus? status) {
+    if (status == _status) return;
+    _status = status;
+    _reload();
+  }
+
+  void _reload() {
+    notifyListeners();
+    loadAlbum.execute();
+  }
+
+  Future<void> refresh() => Future.wait([
+    loadAlbum.execute(),
+    loadTeams.execute(),
+    loadSummary.execute(),
+  ]);
 
   Future<Result<void>> _loadAlbum() async {
     final album = await _albumRepository.getAlbum(
