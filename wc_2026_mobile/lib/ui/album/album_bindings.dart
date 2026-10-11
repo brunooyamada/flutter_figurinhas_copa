@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:wc_2026_mobile/core/view_model_initializable.dart';
-import 'package:wc_2026_mobile/ui/album/album__view_model.dart';
+import 'package:wc_2026_mobile/ui/album/album__viewmodel.dart';
 
 class const AlbumBindings({
   super.key,
