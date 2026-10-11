@@ -4,6 +4,7 @@ import 'package:wc_2026_mobile/domain/models/team/team.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/filter_tabs.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/header.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/sticker_tile.dart';
+import 'package:wc_2026_mobile/ui/album/widgets/team_selection.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/team_strip.dart';
 
 class const AlbumScreen({super.key}) extends StatelessWidget {
@@ -347,6 +348,99 @@ class const AlbumScreen({super.key}) extends StatelessWidget {
                       teamColor: Color(0xffFFDF00),
                       collected: false,
                     ),
+                  ),
+                ],
+              ),
+            ),
+
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  TeamSelection(
+                    name: 'Brasil',
+                    flagPath: '/flags/bra.png',
+                    color: Color(0xffFFDF00),
+                    progress: '2 / 21',
+                    stickers: [
+                      (
+                        code: 'BRA',
+                        number: 1,
+                        label: 'Brasil',
+                        collected: true,
+                        player: 'JOGADOR',
+                        count: 2,
+                      ),
+                      (
+                        code: 'BRA',
+                        number: 10,
+                        label: 'Brasil',
+                        collected: true,
+                        player: 'JOGADOR',
+                        count: 1,
+                      ),
+                      (
+                        code: 'BRA',
+                        number: 20,
+                        label: 'Brasil',
+                        collected: false,
+                        player: 'JOGADOR',
+                        count: 0,
+                      ),
+                    ],
+                    onStickerTap: (
+                      ({
+                        String code,
+                        bool collected,
+                        int count,
+                        String label,
+                        int number,
+                        String player,
+                      })
+                      value,
+                    ) {},
+                  ),
+                  TeamSelection(
+                    name: 'BEL',
+                    flagPath: '/flags/bel.png',
+                    color: Color(0xffED2939),
+                    progress: '5 / 21',
+                    stickers: [
+                      (
+                        code: 'BEL',
+                        number: 1,
+                        label: 'Bélgica',
+                        collected: true,
+                        player: 'JOGADOR',
+                        count: 2,
+                      ),
+                      (
+                        code: 'BEL',
+                        number: 10,
+                        label: 'Bélgica',
+                        collected: true,
+                        player: 'JOGADOR',
+                        count: 1,
+                      ),
+                      (
+                        code: 'BEL',
+                        number: 20,
+                        label: 'Bélgica',
+                        collected: false,
+                        player: 'JOGADOR',
+                        count: 0,
+                      ),
+                    ],
+                    onStickerTap: (
+                      ({
+                        String code,
+                        bool collected,
+                        int count,
+                        String label,
+                        int number,
+                        String player,
+                      })
+                      value,
+                    ) {},
                   ),
                 ],
               ),
