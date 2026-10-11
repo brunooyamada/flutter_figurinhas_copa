@@ -3,6 +3,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/domain/models/team/team.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/filter_tabs.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/header.dart';
+import 'package:wc_2026_mobile/ui/album/widgets/sticker_tile.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/team_strip.dart';
 
 class const AlbumScreen({super.key}) extends StatelessWidget {
@@ -318,6 +319,37 @@ class const AlbumScreen({super.key}) extends StatelessWidget {
               ],
               selected: 'BRA',
               onSelected: (_) {},
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                spacing: 10,
+                children: [
+                  SizedBox(
+                    width: 80,
+                    height: 104,
+                    child: StickerTile(
+                      number: 1,
+                      label: 'BRA',
+                      player: 'JOGADOR',
+                      teamColor: Color(0xffFFDF00),
+                      collected: true,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 80,
+                    height: 104,
+                    child: StickerTile(
+                      number: 2,
+                      label: 'BRA',
+                      player: 'JOGADOR',
+                      teamColor: Color(0xffFFDF00),
+                      collected: false,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
