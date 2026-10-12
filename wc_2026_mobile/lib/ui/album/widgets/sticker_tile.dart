@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_assets.dart';
 import 'package:wc_2026_mobile/ui/core/share/required_text.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
@@ -101,6 +102,14 @@ class const StickerTile({
               ),
             ),
           ),
+
+          if (onTap case final onTap?)
+            Positioned.fill(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(onTap: onTap),
+              ),
+            ),
         ],
       ),
     );
