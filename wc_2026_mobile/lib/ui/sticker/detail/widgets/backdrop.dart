@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 
 class const Backdrop({super.key, required final bool collected})
@@ -13,13 +12,16 @@ class const Backdrop({super.key, required final bool collected})
             AppColors.blue.withValues(alpha: .9),
           ]
         : [AppColors.gray, AppColors.grayLight, AppColors.grayDark];
+
     return Stack(
       fit: .expand,
       children: [
         ColoredBox(color: AppColors.ink),
+
         _Disc(size: 700, left: -150, top: -250, color: pallete[0]),
         _Disc(size: 500, left: 40, top: 400, color: pallete[1]),
         _Disc(size: 300, left: -150, top: 500, color: pallete[2]),
+
         DecoratedBox(
           decoration: BoxDecoration(
             gradient: LinearGradient(

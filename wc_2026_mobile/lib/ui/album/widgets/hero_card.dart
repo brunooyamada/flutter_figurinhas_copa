@@ -1,4 +1,3 @@
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:wc_2026_mobile/ui/core/share/team_disc.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
@@ -61,27 +60,29 @@ class const _Header({
     return ColoredBox(
       color: collected ? teamColor : AppColors.grayDark,
       child: Padding(
-        padding: const .only(left: 18, right: 14),
+        padding: const EdgeInsets.only(left: 18, right: 14),
         child: Row(
           children: [
             TeamDisc(color: teamColor, flagCode: country),
             const SizedBox(width: 10),
-            Column(
-              mainAxisAlignment: .center,
-              crossAxisAlignment: .start,
-              spacing: 5,
-              children: [
-                Text(
-                  team.toUpperCase(),
-                  style: AppTextStyles.title.copyWith(color: AppColors.white),
-                ),
-                Text(
-                  'SELEÇÃO OFICIAL',
-                  style: AppTextStyles.overline.copyWith(
-                    color: AppColors.white,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: .center,
+                crossAxisAlignment: .start,
+                spacing: 5,
+                children: [
+                  Text(
+                    team.toUpperCase(),
+                    style: AppTextStyles.title.copyWith(color: AppColors.white),
                   ),
-                ),
-              ],
+                  Text(
+                    'SELEÇÃO OFICIAL',
+                    style: AppTextStyles.overline.copyWith(
+                      color: AppColors.white,
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(width: 6),
             Container(

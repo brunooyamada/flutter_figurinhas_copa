@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_assets.dart';
-import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_dimens.dart';
+import 'package:wc_2026_mobile/ui/core/theme/app_text_styles.dart';
 
 class const AlbumHero({
   super.key,
@@ -11,7 +12,6 @@ class const AlbumHero({
   @override
   Widget build(BuildContext context) {
     final progress = _total == 0 ? 0.0 : _collected / _total;
-
     return SizedBox(
       height: 220,
       child: ClipRRect(
@@ -37,6 +37,7 @@ class const AlbumHero({
                   backgroundColor: AppColors.gold.withValues(alpha: .9),
                 ),
               ),
+
               Positioned(
                 top: 140,
                 right: -10,
@@ -81,7 +82,7 @@ class const AlbumHero({
                         shape: StadiumBorder(),
                       ),
                       child: Text(
-                        'MEU ÁLBUM 26',
+                        'MEU ÁLBUM  26',
                         style: AppTextStyles.overline,
                       ),
                     ),
@@ -106,13 +107,14 @@ class const AlbumHero({
                         color: AppColors.white,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 12),
                     Text(
                       '$_collected / $_total FIGURINHAS',
                       style: AppTextStyles.overline.copyWith(
                         color: AppColors.white,
                       ),
                     ),
+                    const SizedBox(height: 10),
                     LinearProgressIndicator(
                       value: progress,
                       minHeight: 6,

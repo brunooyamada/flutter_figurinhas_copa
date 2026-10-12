@@ -1,5 +1,4 @@
-import 'package:flutter/widgets.dart';
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 import 'package:wc_2026_mobile/ui/more/widgets/menu_row.dart';
 
@@ -27,7 +26,7 @@ class const MenuSection({
           child: Material(
             color: AppColors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: AppDimens.borderRadiusLg,
+              borderRadius: AppDimens.borderRadiusMd,
               side: BorderSide(color: AppColors.hairline),
             ),
             child: Column(

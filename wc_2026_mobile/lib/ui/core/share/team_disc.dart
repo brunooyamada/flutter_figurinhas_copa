@@ -1,9 +1,9 @@
-import 'package:flutter/widgets.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/ui/core/share/team_flag.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 
 class const TeamDisc({
+  super.key,
   final String? flagPath,
   final String? flagCode,
   required final Color color,
@@ -16,13 +16,13 @@ class const TeamDisc({
   @override
   Widget build(BuildContext context) {
     final size = selected ? _selectedSize : _discSize;
-    final borderWidth = selected ? 3.0 : 2.0;
-    final flagSize = size - (borderWidth + 4) * 2;
+    final borderWith = selected ? 3.0 : 2.0;
+    final flagSize = size - (borderWith + 4) * 2;
 
     return Material(
       color: AppColors.white,
       shape: CircleBorder(
-        side: BorderSide(color: color, width: borderWidth),
+        side: BorderSide(color: color, width: borderWith),
       ),
       child: InkWell(
         onTap: onTap ?? () {},
@@ -32,7 +32,7 @@ class const TeamDisc({
           child: Center(
             child: flagPath != null
                 ? TeamFlag.url(flagPath!, size: flagSize)
-                : TeamFlag(code: flagCode!, size: flagSize),
+                : TeamFlag(code: flagCode, size: flagSize),
           ),
         ),
       ),
