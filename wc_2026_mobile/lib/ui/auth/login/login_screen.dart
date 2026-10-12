@@ -46,7 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
     //Falha
     if (command.result case Error(:final error)) {
       command.clearResult();
-      debugPrint(error.toString());
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(ErrorMessages.of(error))));
     }

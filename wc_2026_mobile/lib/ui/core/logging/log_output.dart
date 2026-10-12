@@ -16,6 +16,5 @@ class const ConsoleLogOutput() implements LogOutput {
 
     if (record.error != null) buffer.write('\n error: ${record.error}');
     if (record.stackTrace != null) buffer.write('\n${record.stackTrace}');
-    debugPrint(buffer.toString());
   }
 }

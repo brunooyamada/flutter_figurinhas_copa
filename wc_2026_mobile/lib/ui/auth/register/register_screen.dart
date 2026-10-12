@@ -144,7 +144,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     builder: (context, _) {
                       final teams = widget.viewModel.teams;
                       final loadTeams = widget.viewModel.loadTeams;
-                      debugPrint('Chamou o Team picker');
                       return TeamPicker(
                         teams: widget.viewModel.teamMatching(_search.text),
                         available: teams.length,

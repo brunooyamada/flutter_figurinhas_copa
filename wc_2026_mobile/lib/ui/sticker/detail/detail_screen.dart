@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:wc_2026_mobile/ui/album/widgets/hero_card.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
+import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 import 'package:wc_2026_mobile/ui/sticker/detail/widgets/backdrop.dart';
 import 'package:wc_2026_mobile/ui/sticker/detail/widgets/top_bar.dart';
 
@@ -28,7 +30,31 @@ class const DetailScreen({super.key, required final DetailArgs sticker})
             Backdrop(collected: true),
             SafeArea(
               child: Column(
-                children: [TopBar(number: 003, total: 980, onBack: () {})],
+                children: [
+                  TopBar(number: 003, total: 980, onBack: () {}),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: .fromLTRB(
+                        AppDimens.gridMargin,
+                        26,
+                        AppDimens.gridMargin,
+                        28,
+                      ),
+                      child: Column(
+                        children: [
+                          HeroCard(
+                            number: sticker.number,
+                            team: sticker.team,
+                            country: sticker.country,
+                            teamColor: sticker.teamColor,
+                            rare: false,
+                            collected: sticker.count > 0,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
