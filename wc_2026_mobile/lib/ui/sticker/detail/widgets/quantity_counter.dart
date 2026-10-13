@@ -45,7 +45,10 @@ class const QuantityCounter({
             ),
           ),
           const SizedBox(width: 6),
-          _StepButton(icon: Icons.remove, onPressed: () {}),
+          _StepButton(
+            icon: Icons.remove,
+            onPressed: count > 1 ? () => onChanged(count - 1) : () {},
+          ),
           SizedBox(
             width: 52,
             child: FittedBox(
@@ -56,7 +59,11 @@ class const QuantityCounter({
               ),
             ),
           ),
-          _StepButton(icon: Icons.add, onPressed: () {}, primary: true),
+          _StepButton(
+            icon: Icons.add,
+            onPressed: () => onChanged(count + 1),
+            primary: true,
+          ),
         ],
       ),
     );
