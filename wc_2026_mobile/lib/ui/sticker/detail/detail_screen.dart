@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wc_2026_mobile/routing/routes.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/hero_card.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_colors.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
@@ -31,7 +33,16 @@ class const DetailScreen({super.key, required final DetailArgs sticker})
             SafeArea(
               child: Column(
                 children: [
-                  TopBar(number: 003, total: 980, onBack: () {}),
+                  TopBar(
+                    number: 003,
+                    total: 980,
+                    onBack: () {
+                      context.canPop()
+                          ? context.pop()
+                          : context.go(Routes.album);
+                    },
+                  ),
+
                   Expanded(
                     child: SingleChildScrollView(
                       padding: .fromLTRB(
