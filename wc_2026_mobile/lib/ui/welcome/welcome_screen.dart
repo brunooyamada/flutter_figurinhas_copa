@@ -50,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                     SizedBox(height: 72, child: StatsBar()),
                     const SizedBox(height: 20),
                     FilledButton(
-                      onPressed: () => context.go(Routes.login),
+                      onPressed: () => context.go(Routes.home),
                       child: Text('COMEÇAR A COLECIONAR  →'),
                     ),
                     const SizedBox(height: 8),

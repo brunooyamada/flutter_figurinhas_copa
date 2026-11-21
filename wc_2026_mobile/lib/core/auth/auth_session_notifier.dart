@@ -37,7 +37,7 @@ class AuthSessionNotifier({
 
     switch (restored) {
       case Ok<AuthSessionUser?>(:final value):
-        _user = user;
+        _user = value;
         _log.info(value == null ? 'Sem sessão guardada' : 'Sessão restaurada');
       case Error<AuthSessionUser?>(:final error):
         _log.error('Falha ao ler a sessão guardada', error: error);
