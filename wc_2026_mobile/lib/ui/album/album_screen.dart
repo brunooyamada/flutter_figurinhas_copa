@@ -1,13 +1,10 @@
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/core/result.dart';
-import 'package:wc_2026_mobile/domain/models/team/team.dart';
 import 'package:wc_2026_mobile/routing/routes.dart';
 import 'package:wc_2026_mobile/ui/album/album__viewmodel.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/filter_tabs.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/header.dart';
-import 'package:wc_2026_mobile/ui/album/widgets/sticker_tile.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/team_selection.dart';
 import 'package:wc_2026_mobile/ui/album/widgets/team_strip.dart';
 import 'package:wc_2026_mobile/ui/core/share/app_loading.dart';

@@ -1,4 +1,3 @@
-import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/core/command.dart';
 import 'package:wc_2026_mobile/core/result.dart';

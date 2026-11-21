@@ -9,6 +9,8 @@ import 'package:wc_2026_mobile/core/logging/log_output.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+
   AppLogger.configure(
     level: kDebugMode ? Level.ALL : Level.INFO,
     outputs: const [ConsoleLogOutput()],
